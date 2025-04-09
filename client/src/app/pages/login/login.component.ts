@@ -6,7 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-// import { AuthService } from '../../core/services/auth.service';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +20,7 @@ export class LoginComponent {
 
   constructor(
     private fb: FormBuilder,
-    // private authService: AuthService
+    private authService: AuthService
   ) {
     this.loginForm = this.fb.group({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -30,9 +30,9 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      // this.authService.onLogin(this.loginForm.value).subscribe({
-      //   next: () => {},
-      // });
+      this.authService.onLogin(this.loginForm.value).subscribe({
+        next: () => { },
+      });
     } else {
       this.loginForm.markAllAsTouched();
     }
