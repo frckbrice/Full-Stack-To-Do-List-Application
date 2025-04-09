@@ -17,6 +17,7 @@ ng serve
 
 ### Back-end (Node API)
 
+
 ```bash
 cd api
 yarn install
@@ -26,4 +27,4 @@ yarn run start:dev
 ## Features
 - Add, edit, Read and delete to-do items
 - mark task as completed
-- persistent storage (postgreSQL)
+- persistent storage (postgreSQL running online on NEON)
