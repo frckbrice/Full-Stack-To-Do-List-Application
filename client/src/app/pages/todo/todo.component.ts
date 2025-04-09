@@ -4,6 +4,7 @@ import { TodoService } from '../../core/services/todo.service';
 import { ITodo } from '../../core/models/to-do-model';
 import { SlidePanelComponent } from '../../shared/ui/panel/panel.component';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-todo',
@@ -16,7 +17,10 @@ export class TodoComponent {
   todoForm!: FormGroup;
   isSlidePanelOpen = false;
   todoStatus = ITodoStatus;
-  constructor(private toserService: TodoService, private fb: FormBuilder) {
+  constructor(private toserService: TodoService,
+    private fb: FormBuilder,
+    private authService: AuthService
+  ) {
     this.todoForm = this.fb.group({
       title: new FormControl('', [Validators.required]),
       description: new FormControl('', [Validators.required]),

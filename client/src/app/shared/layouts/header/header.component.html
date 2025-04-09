@@ -1,8 +1,14 @@
-<header class="bg-white shadow py-5 fixed top-0 left-0 w-full z-20">
-    <div class=" flex items-center justify-between px-40  pl-40">
-        <h4 class=" font-bold text-xl">Todo Management</h4>
+<header class="app-header">
+    <div class="container flex items-center justify-between">
+        <h4 class="font-bold text-xl">Todo Management</h4>
         <div class="flex gap-3">
-            <div class="px-2 font-medium cursor-pointer ">Login</div>
+            @if (this.isAuthenticated$ | async) {
+            <div class="px-2 font-medium cursor-pointer">Todos</div>
+            <div class="px-2 font-medium cursor-pointer" (click)="onLogout()">Logout</div>
+            }@else {
+            <div class="px-2 font-medium cursor-pointer">Login</div>
+            }
+
         </div>
     </div>
 </header>
