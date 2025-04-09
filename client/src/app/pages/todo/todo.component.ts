@@ -40,7 +40,6 @@ export class TodoComponent {
     this.isSlidePanelOpen = true;
   }
 
-
   onSubmit() {
     if (this.todoForm.valid) {
     } else this.todoForm.markAllAsTouched();
