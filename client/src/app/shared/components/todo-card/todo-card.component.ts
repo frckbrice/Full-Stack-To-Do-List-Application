@@ -14,4 +14,8 @@ export const ITodoStatus = ['OPEN', 'PROGRESS', 'TESTING', 'DONE'];
 export class TodoCardComponent {
   @Input() type: ITodoType = 'OPEN';
   @Input() todo!: ITodo;
+
+  ngOnInit() {
+    console.log({ currentTodo: this.todo });
+  }
 }

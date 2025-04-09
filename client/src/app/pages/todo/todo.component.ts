@@ -13,11 +13,12 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-todo',
   standalone: true,
-  imports: [TodoCardComponent, SlidePanelComponent, ReactiveFormsModule],
+  imports: [TodoCardComponent, SlidePanelComponent, ReactiveFormsModule, CommonModule],
   templateUrl: './todo.component.html',
   styleUrl: './todo.component.scss',
 })
@@ -36,6 +37,7 @@ export class TodoComponent implements OnInit {
     });
   }
 
+
   ngOnInit(): void {
     this.getAllTodos();
   }
@@ -43,7 +45,8 @@ export class TodoComponent implements OnInit {
   getAllTodos() {
     this.todoService.getAllTodo(this.filterByStatus).subscribe({
       next: (response) => {
-        this.todos = response.data;
+        console.log({ response, todos: response });
+        this.todos = response || [];
       },
     });
   }
@@ -57,6 +60,7 @@ export class TodoComponent implements OnInit {
   }
 
   onFilterByStatus(status: string) {
+    console.log(status);
     this.filterByStatus = status;
     this.getAllTodos();
   }

@@ -10,14 +10,17 @@ import { apiEndpoint } from '../constants/constants';
 export class TodoService {
   constructor(private http: HttpClient) { }
 
-  getAllTodo(status: string): Observable<IResponse<ITodo[]>> {
+  getAllTodo(status: string): Observable<IResponse<ITodo[]>|any> {
     let queryString = '';
     if (status !== '') {
       queryString = `status=${status}`;
     }
-    return this.http.get<IResponse<ITodo[]>>(
-      `${apiEndpoint.TodoEndpoint.getAllTodo}?${queryString}`
+    const todos = this.http.get<IResponse<ITodo[]>>(
+      `${apiEndpoint.TodoEndpoint.getAllTodo}?${queryString}` // adding query string to filter the todo from api.
     );
+
+    console.log(todos);
+    return todos;
   }
 
   addTodo(data: ITodo): Observable<IResponse<ITodo>> {

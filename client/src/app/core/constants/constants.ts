@@ -6,14 +6,13 @@ const apiurl = 'http://localhost:5000/api';
 
 export const apiEndpoint = {
     AuthEndpoint: {
-        login: `${apiurl}/login`,
-        logout: `${apiurl}/logout`,
-        loggedUser: `${apiurl}/user`,
+        login: `${apiurl}/auth/login`,
+        logout: `${apiurl}/auth/logout`,
     },
     TodoEndpoint: {
-        getAllTodo: `${apiurl}/todo`,
-        addTodo: `${apiurl}/todo`,
-        updateTodo: `${apiurl}/todo`,
-        deleteTodo: `${apiurl}/todo`,
+        getAllTodo: `${apiurl}/todos`,
+        addTodo: `${apiurl}/todos`,
+        updateTodo: `${apiurl}/todos`,
+        deleteTodo: `${apiurl}/todos`,
     },
 };
